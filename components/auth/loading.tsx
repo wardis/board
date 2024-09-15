@@ -9,6 +9,8 @@ export const Loading = () => {
         width={120}
         height={120}
         className="animate-pulse duration-700"
+        priority
+        style={{ width: 'auto' }}
       />
     </div>
   )
