@@ -1,6 +1,7 @@
 'use client'
 
 import { useOrganization } from '@clerk/nextjs'
+import { toast } from 'sonner'
 import Image from 'next/image'
 
 import { api } from '@/convex/_generated/api'
@@ -18,6 +19,13 @@ export const EmptyBoards = () => {
       orgId: organization.id,
       title: 'Untitled',
     })
+      .then((id) => {
+        toast.success(`Board created!`)
+        // TODO: redirect to board/{id}
+      })
+      .catch(() => {
+        toast.error('Failed to create board')
+      })
   }
 
   return (
